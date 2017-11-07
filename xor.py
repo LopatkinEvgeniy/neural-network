@@ -13,21 +13,7 @@ training_data = [
 ]
 
 
-def train(learning_rate, delta):
-    error = delta * 2
-    i = 0
-    while error > delta:
-        error = 0
-        for d in training_data:
-            error += abs(network.train_step(d[0], d[1], learning_rate))
-        error /= len(training_data)
-
-        if i % 10000 == 0:
-            print(i, error)
-        i += 1
-
-
-train(0.1, 0.1)
+network.train(0.1, 0.1, training_data)
 
 
 for d in training_data:

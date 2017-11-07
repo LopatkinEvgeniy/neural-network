@@ -8,20 +8,18 @@ def sigmoid(x):
 
 class Neuron(object):
     def __init__(self, weights):
+        self.output = 0
+        self.error = 0
+        self.delta = 0
         self.weights = []
         for i in range(weights):
             self.weights.append(random.uniform(-10, 10))
         self.bias = random.uniform(-10, 10)
 
-        # train only fields
-        self.output = 0
-        self.error = 0
-        self.delta = 0
-
     def process(self, inputs):
         result = 0
-        for index, val in enumerate(inputs):
-            result += val * self.weights[index]
+        for i, val in enumerate(inputs):
+            result += val * self.weights[i]
         result += self.bias
         self.output = sigmoid(result)
         return self.output
@@ -71,3 +69,16 @@ class Network(object):
             total_error += abs(result - expected_result[i])
 
         return total_error
+
+    def train(self, learning_rate, delta, training_data):
+        error = delta * 2
+        i = 0
+        while error > delta:
+            error = 0
+            for d in training_data:
+                error += abs(self.train_step(d[0], d[1], learning_rate))
+            error /= len(training_data)
+
+            if i % 10000 == 0:
+                print(i, error)
+            i += 1
