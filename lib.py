@@ -63,11 +63,9 @@ class Network(object):
                 for i, input_val in enumerate(layer_input):
                     neuron.weights[i] -= input_val * neuron.delta * learning_rate
 
-        # FIXME: previous error
         total_error = 0
         for (i, result) in enumerate(actual_result):
             total_error += abs(result - expected_result[i])
-
         return total_error
 
     def train(self, learning_rate, delta, training_data):
