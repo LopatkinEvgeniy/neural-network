@@ -71,7 +71,7 @@ class Network(object):
         return total_error
 
     def train(self, learning_rate, delta, training_data):
-        error = delta * 2
+        error = float('inf')
         i = 0
         while error > delta:
             error = 0
