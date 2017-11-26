@@ -77,6 +77,6 @@ class Network(object):
                 error += abs(self.train_step(d[0], d[1], learning_rate))
             error /= len(training_data)
 
-            if i % 10000 == 0:
+            if i % 1000 == 0:
                 print(i, error)
             i += 1
