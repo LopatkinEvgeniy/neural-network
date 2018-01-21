@@ -1,6 +1,7 @@
 import csv
 import random
-from lib.lib import Neuron, Network
+
+from lib import Neuron, Network
 
 iris_codes = {
     'setosa': [1, 0, 0],
@@ -10,7 +11,7 @@ iris_codes = {
 
 iris_dataset = []
 
-for i, row in enumerate(csv.reader(open('data/iris.csv', 'r'))):
+for i, row in enumerate(csv.reader(open('../data/iris.csv', 'r'))):
     if i == 0:
         continue
     iris_name = row[4]

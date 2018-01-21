@@ -12,7 +12,7 @@ iris_codes = {
 
 iris_dataset = []
 
-for i, row in enumerate(csv.reader(open('data/iris.csv', 'r'))):
+for i, row in enumerate(csv.reader(open('../data/iris.csv', 'r'))):
     if i == 0:
         continue
     iris_name = row[4]

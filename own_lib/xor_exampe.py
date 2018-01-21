@@ -1,4 +1,4 @@
-from lib.lib import Neuron, Network
+from lib import Neuron, Network
 
 network = Network([
     [Neuron(2), Neuron(2), Neuron(2), Neuron(2)],
