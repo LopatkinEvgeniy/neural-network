@@ -42,8 +42,8 @@ INPUT_NODES = 4
 OUTPUT_NODES = 3
 HIDDEN_NODES = 12
 
-LEARNING_RATE = 0.05
-STEPS = 100000
+LEARNING_RATE = 0.5
+STEPS = 10000
 
 # model
 input = tf.placeholder(tf.float32, shape=[None, INPUT_NODES], name="input")
